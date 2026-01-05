@@ -1,18 +1,19 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-const DashboardLayout = () => {
-    return (
-        <div>
-            <Navbar />
-            <main className="min-h-screen">
-                <Outlet /> 
-            </main>
-            <Footer />
-        </div>
-    );
-};
+export default function DashboardLayout() {
+  return (
+    <div className="min-h-screen flex flex-col">
+      
+      <Navbar />
 
-export default DashboardLayout;
+      <div className="flex-1">
+        <Outlet />
+      </div>
+
+      <Footer />
+
+    </div>
+  );
+}
