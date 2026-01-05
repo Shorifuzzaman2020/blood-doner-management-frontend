@@ -1,134 +1,133 @@
 
-import { createBrowserRouter } from "react-router-dom";
 
-// Layouts
-import MainLayout from "../layout/MainLayout";
-import Home from "../pages/Home/Home";
-// import DashboardLayout from "../Layout/DashboardLayout";
+// import { createBrowserRouter } from "react-router-dom";
+
+// // Layouts
+// import MainLayout from "../layout/MainLayout";
 
 // // Public Pages
 // import Home from "../pages/Home/Home";
 // import Login from "../pages/Auth/Login";
-// import Register from "../pages/Auth/Register";
-// import NotFound from "../pages/NotFound";
 
-// // Auth / Protected Routes
-// import PrivateRoute from "../components/Shared/PrivateRoute";
-// import AdminRoute from "../components/Shared/AdminRoute";
-// import ModeratorRoute from "../components/Shared/ModeratorRoute";
+// // Admin Pages
+// // import AdminDashboard from "../pages/admin/AdminDashboard";
+// import AddModerator from "../pages/admin/AddModerator";
+// import AllModerators from "../pages/admin/AllModerators";
+// // import AddDonor from "../pages/admin/AddDonor";
+// import DonorList from "../pages/admin/AllDoners";
+// import AdminDashboard from "../pages/Admin/AdminDashboard";
+// import EditModerator from "../pages/admin/EditModerator";
+// import AddDoner from "../pages/admin/AddDonor";
+// import AllDoners from "../pages/admin/AllDoners";
+// import EditDoner from "../pages/admin/EditDoner";
+// import ModeratorDashboard from "../pages/moderator/ModeratorDashboard";
+// import ModeratorProfile from "../pages/moderator/ModeratorProfile";
 
-// // User Dashboard Pages
-// import UserDashboard from "../pages/Dashboard/User/UserDashboard";
-// import UserProfile from "../pages/Dashboard/User/UserProfile";
-// import MyApplications from "../pages/Dashboard/User/MyApplications";
-// import MyReviews from "../pages/Dashboard/User/MyReviews";
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <MainLayout />,
+//     children: [
+//       { path: "/", element: <Home /> },
+//       { path: "login", element: <Login /> },
+//     ],
+//   },
 
-// // Moderator Dashboard Pages
-// import ModeratorDashboard from "../pages/Dashboard/Moderator/ModeratorDashboard";
-// import ModeratorProfile from "../pages/Dashboard/Moderator/ModeratorProfile";
-// import AddScholarship from "../pages/Dashboard/Moderator/AddScholarship";
-// import ManageScholarships from "../pages/Dashboard/Moderator/ManageScholarships";
-// import AllReviews from "../pages/Dashboard/Moderator/AllReviews";
-// import AllApplications from "../pages/Dashboard/Moderator/AllApplications";
+//   {
+//     path: "/admin",
+//     element: <AdminDashboard />,
+//     children: [
+//       { path: "add-moderator", element: <AddModerator /> },
+//       { path: "moderators", element: <AllModerators /> },
+//       { path: "add-donor", element: <AddDoner /> },
+//       { path: "doners", element: <AllDoners /> },
+//       { path: "/admin/moderator/:id", element: <EditModerator /> },
+//       { path: "/admin/doner/:id", element: <EditDoner /> }
+//     ],
+//   },
+//   {
+//     path: "/moderator",
+//     element: <ModeratorDashboard />,
+//     children: [
+//       { path: "add-doner", element: <AddDoner /> },
+//       { path: "doners", element: <AllDoners /> },
+//       { path: "profile", element: <ModeratorProfile /> }
+//     ]
+//   }
+// ]);
 
-// // Admin Dashboard Pages
-// import AdminDashboard from "../pages/Dashboard/Admin/AdminDashboard";
-// import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
-// import ManageUsers from "../pages/Dashboard/Admin/ManageUsers";
-// import AdminAddScholarship from "../pages/Dashboard/Admin/AdminAddScholarship";
-// import AdminManageScholarship from "../pages/Dashboard/Admin/AdminManageScholarship";
-// import AdminManageApplication from "../pages/Dashboard/Admin/AdminManageApplication";
-// import AdminManageReview from "../pages/Dashboard/Admin/AdminManageReview";
-// import AdminAnalytics from "../pages/Dashboard/Admin/AdminAnalytics";
-
-// // Scholarship Routes
+// export default router;
 
 
-// import ScholarshipDetails from "../pages/ScholarshipDetails/ScholarshipDetails";
-// import AllScholarships from "../pages/AllScholarships/AllScholarships";
-// import ApplyScholarship from "../pages/Apply/ApplyScholarship";
-// import AnalyticsPage from "../pages/Dashboard/Admin/AnalyticsPage";
-// import OfficeAddress from "../pages/Home/OfficeAddress";
-// import EditApplication from "../pages/Apply/EditApplication";
-// import StudentLoanCenter from "../components/Shared/StudentLoanCenter";
+import { createBrowserRouter } from "react-router-dom";
+
+import MainLayout from "../layout/MainLayout";
+
+// Public
+import Home from "../pages/Home/Home";
+import Login from "../pages/Auth/Login";
+
+// Admin
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import AddModerator from "../pages/admin/AddModerator";
+import AllModerators from "../pages/admin/AllModerators";
+import AddDoner from "../pages/admin/AddDonor";
+import AllDoners from "../pages/admin/AllDoners";
+import EditModerator from "../pages/admin/EditModerator";
+import EditDoner from "../pages/admin/EditDoner";
+
+// Moderator
+import ModeratorDashboard from "../pages/moderator/ModeratorDashboard";
+import ModeratorProfile from "../pages/moderator/ModeratorProfile";
+
+// Protected
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
+
+  // 🌍 Public
   {
     path: "/",
     element: <MainLayout />,
     children: [
       { path: "/", element: <Home /> },
-      // { path: "/login", element: <Login /> },
-      // { path: "/register", element: <Register /> },
-      // { path: "/scholarships/:id", element: <PrivateRoute><ScholarshipDetails /></PrivateRoute> },
-      // { path: "/scholarships", element: <AllScholarships /> },
-      // {path: "/our-office",element: <OfficeAddress/>},
-      // {path: "/loan", element: <StudentLoanCenter/>},
-    ]
+      { path: "login", element: <Login /> },
+    ],
   },
 
-  // {
-  //   path: "/dashboard/user",
-  //   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <UserDashboard />, // This now acts as layout
-  //       children: [
-  //         { index: true, element: <UserProfile /> }, // default page
-  //         { path: "profile", element: <UserProfile /> },
-  //         { path: "my-applications", element: <MyApplications /> },
-  //         { path: "my-reviews", element: <MyReviews /> },
-  //         { path: "apply/:id", element: <ApplyScholarship /> },
-  //         {path:"edit-application/:id", element: <EditApplication/>}
-  //       ]
-  //     }
-  //   ]
-  // },
+  // 🛡️ Admin
+  {
+    path: "/admin",
+    element: (
+      <ProtectedRoute role="admin">
+        <AdminDashboard />
+      </ProtectedRoute>
+    ),
+    children: [
+      { path: "add-moderator", element: <AddModerator /> },
+      { path: "moderators", element: <AllModerators /> },
+      { path: "add-donor", element: <AddDoner /> },
+      { path: "doners", element: <AllDoners /> },
+      { path: "moderator/:id", element: <EditModerator /> },
+      { path: "doner/:id", element: <EditDoner /> }
+    ],
+  },
 
-  // {
-  //   path: "/dashboard/moderator",
-  //   element: <ModeratorRoute><DashboardLayout /></ModeratorRoute>,
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <ModeratorDashboard />, // This acts as the layout with <Outlet />
-  //       children: [
-  //         { index: true, element: <ModeratorProfile /> }, // Default page when visiting /dashboard/moderator
-  //         { path: "profile", element: <ModeratorProfile /> },
-  //         { path: "add-scholarship", element: <AddScholarship /> },
-  //         { path: "manage-scholarships", element: <ManageScholarships /> },
-  //         { path: "all-reviews", element: <AllReviews /> },
-  //         { path: "all-applications", element: <AllApplications /> }
-  //       ]
-  //     }
-  //   ]
-  // },
+  // 🛡️ Moderator
+  {
+    path: "/moderator",
+    element: (
+      <ProtectedRoute role="moderator">
+        <ModeratorDashboard />
+      </ProtectedRoute>
+    ),
+    children: [
+      { path: "add-doner", element: <AddDoner /> },
+      { path: "doners", element: <AllDoners /> },
+      { path: "profile", element: <ModeratorProfile /> }
+    ],
+  }
 
-  // {
-  //   path: "/dashboard/admin",
-  //   element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <AdminDashboard />, // This now acts as a layout for nested children
-  //       children: [
-  //         { index: true, element: <AdminProfile /> }, // default route
-  //         { path: "profile", element: <AdminProfile /> },
-  //         { path: "add-scholarship", element: <AdminAddScholarship /> },
-  //         { path: "manage-scholarships", element: <AdminManageScholarship /> },
-  //         { path: "manage-applications", element: <AdminManageApplication /> },
-  //         { path: "manage-users", element: <ManageUsers /> },
-  //         { path: "manage-reviews", element: <AdminManageReview /> },
-  //         { path: "analytics", element: <AnalyticsPage/> }
-  //       ]
-  //     }
-  //   ]
-  // },
-  
-
-  // 404
-  // { path: "*", element: <NotFound /> }
 ]);
 
 export default router;
