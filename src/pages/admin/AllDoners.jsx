@@ -152,7 +152,7 @@ export default function AllDoners() {
           onChange={(e) => setBloodGroup(e.target.value)}
         >
           <option value="">All Blood Groups</option>
-          {["A+","A-","B+","B-","AB+","AB-","O+","O-"].map(bg => (
+          {["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"].map(bg => (
             <option key={bg} value={bg}>{bg}</option>
           ))}
         </select>
@@ -178,51 +178,53 @@ export default function AllDoners() {
       </div>
 
       {/* 📋 Table */}
-      <table className="table table-zebra w-full">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Doner ID</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Blood Group</th>
-            <th>Last Donation</th>
-            <th>Total Donations</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {filtered.map((doner, index) => (
-            <tr key={doner._id}>
-              <td>{index + 1}</td>
-              <td>{doner.donerId}</td>
-              <td>{doner.name}</td>
-              <td>{doner.address}</td>
-              <td>{doner.phone}</td>
-              <td>{doner.bloodGroup}</td>
-              <td>{doner.lastDonationDate?.slice(0,10)}</td>
-              <td>{doner.totalDonations || 0}</td>
-              <td className="flex gap-2">
-                <button
-                  className="btn btn-sm btn-info"
-                  onClick={() => navigate(`/admin/doner/${doner._id}`)}
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() => handleDelete(doner._id)}
-                  className="btn btn-sm btn-error"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="w-full overflow-x-auto">
+        <table className="table table-zebra w-full">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Doner ID</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Blood Group</th>
+              <th>Last Donation</th>
+              <th>Total Donations</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            {filtered.map((doner, index) => (
+              <tr key={doner._id}>
+                <td>{index + 1}</td>
+                <td>{doner.donerId}</td>
+                <td>{doner.name}</td>
+                <td>{doner.address}</td>
+                <td>{doner.phone}</td>
+                <td>{doner.bloodGroup}</td>
+                <td>{doner.lastDonationDate?.slice(0, 10)}</td>
+                <td>{doner.totalDonations || 0}</td>
+                <td className="flex gap-2">
+                  <button
+                    className="btn btn-sm btn-info"
+                    onClick={() => navigate(`/admin/doner/${doner._id}`)}
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() => handleDelete(doner._id)}
+                    className="btn btn-sm btn-error"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
     </div>
   );

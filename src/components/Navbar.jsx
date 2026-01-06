@@ -1,57 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router';
-
-// const Navbar = () => {
-//     return (
-//         <div className="navbar bg-base-100 shadow-sm">
-//             <div className="navbar-start px-2 lg:px-4">
-//                 <div className="dropdown">
-//                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-//                         <div>
-//                             <img
-//                                 src="https://i.ibb.co.com/MxTVy0cJ/273980872-1550789058647411-6797711509175348982-n.jpg"
-//                                 className="h-14 w-14 rounded-full"
-//                                 alt="profile"
-//                             />
-//                         </div>
-
-//                     </div>
-
-
-//                     <ul
-//                         tabIndex={-1}
-//                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-//                     >
-//                         <li><a>Home</a></li>
-//                         <li><a>Donor List</a></li>
-//                         <li><a>Our Activity</a></li>
-//                     </ul>
-//                 </div>
-
-//                 <img className='hidden lg:block lg:w-16 lg:h-16 ' src="https://i.ibb.co.com/MxTVy0cJ/273980872-1550789058647411-6797711509175348982-n.jpg" alt="" />
-
-//             </div>
-//             <div>
-//                 <h1 className='text-black text-3xl hidden lg:block'>শ্রীবরদী সমাজকল্যাণ ও রক্তদান সংস্থা</h1>
-//             </div>
-//             <div className="navbar-center hidden lg:flex">
-//                 <ul className="menu menu-horizontal px-4">
-//                     <li><a>Home</a></li>
-//                     <li><a>Donor List</a></li>
-//                     <li><a>Our Activity</a></li>
-//                 </ul>
-//             </div>
-
-//             <div className="navbar-end px-4">
-//                 <Link to="/login" className="btn">
-//                     Log in
-//                 </Link>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Navbar;
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -82,7 +28,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-10"
           >
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/doners">Donor List</Link></li>
+            {/* <li><Link to="/doners">Donor List</Link></li> */}
             <li><Link to="/activity">Our Activity</Link></li>
           </ul>
         </div>
@@ -104,7 +50,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-2">
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/doners">Donor List</Link></li>
+          {/* <li><Link to="/doners">Donor List</Link></li> */}
           <li><Link to="/activity">Our Activity</Link></li>
         </ul>
       </div>

@@ -1,43 +1,68 @@
+
+
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function AdminDashboard() {
-    const navigate = useNavigate();
-    const handleLogout = () => {
-        // Clear all login-related data
-        localStorage.removeItem("moderatorId");
-        localStorage.removeItem("role");
 
-        // Redirect to login page
-        navigate("/login");
-    };
-    return (
-        <div className="flex min-h-screen">
-            <div className="w-64 bg-base-200 p-5 flex flex-col justify-between">
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
-                {/* Sidebar */}
-                <div>
-                    <h2 className="text-xl font-bold mb-6 text-center">Admin Panel</h2>
+  const handleLogout = () => {
+    localStorage.removeItem("moderatorId");
+    localStorage.removeItem("role");
+    navigate("/login");
+  };
 
-                    <ul className="menu gap-2">
-                        <li><Link to="add-moderator">Add Moderator</Link></li>
-                        <li><Link to="moderators">See All Moderators</Link></li>
-                        <li><Link to="add-donor">Add Blood Doner</Link></li>
-                        <li><Link to="doners">See Doner List</Link></li>
-                    </ul>
-                </div>
-                <button
-                    onClick={handleLogout}
-                    className="btn btn-error w-full mt-6"
-                >
-                    Log Out
-                </button>
-            </div>
-            {/* Main Content */}
-            <div className="flex-1 p-6 bg-base-100">
-                <Outlet />
-            </div>
+  return (
+    <div className="min-h-screen bg-base-100 lg:flex">
 
+      {/* Mobile Toggle Button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="btn btn-primary bottom-5 right-5 z-50 lg:hidden"
+      >
+        ☰
+      </button>
 
+      {/* Sidebar */}
+      <div
+        className={`fixed lg:static top-0 left-0 h-full w-64 bg-base-200 p-5 flex flex-col justify-between transform transition-transform duration-300 z-40
+        ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+      >
+
+        <div>
+          <h2 className="text-xl font-bold mb-6 text-center">Admin Panel</h2>
+
+          <ul className="menu gap-2 mt-4">
+            <li><Link onClick={() => setOpen(false)} to="add-moderator">Add Moderator</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="moderators">See All Moderators</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="add-donor">Add Blood Doner</Link></li>
+            <li><Link onClick={() => setOpen(false)} to="doners">See Doner List</Link></li>
+          </ul>
         </div>
-    );
+
+        <button
+          onClick={handleLogout}
+          className="btn btn-error w-full mt-6"
+        >
+          Log Out
+        </button>
+      </div>
+
+      {/* Overlay for Mobile */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-40 z-30 lg:hidden"
+        />
+      )}
+
+      {/* Main Content */}
+      <div className="flex-1 p-4 sm:p-6">
+        <Outlet />
+      </div>
+
+    </div>
+  );
 }

@@ -159,6 +159,7 @@ import ModeratorProfile from "../pages/moderator/ModeratorProfile";
 
 // Protected
 import ProtectedRoute from "./ProtectedRoute";
+import OurActivity from "../pages/Home/OurActivity";
 
 const router = createBrowserRouter([
 
@@ -169,6 +170,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "login", element: <Login /> },
+      { path: "/activity", element: <OurActivity /> },
     ],
   },
 

@@ -25,45 +25,48 @@ export default function AllModerators() {
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">All Moderators</h2>
+            
+                <div className="w-full overflow-x-auto">
+                    <table className="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Moderator ID</th>
+                                <th>Name</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Blood Group</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-            <table className="table table-zebra w-full">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Moderator ID</th>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Blood Group</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+                        <tbody>
+                            {moderators.map((mod, index) => (
+                                <tr key={mod._id}>
+                                    <td>{index + 1}</td>
+                                    <td>{mod.moderatorId}</td>
+                                    <td>{mod.name}</td>
+                                    <td>{mod.address}</td>
+                                    <td>{mod.phone}</td>
+                                    <td>{mod.bloodGroup}</td>
+                                    <td className="flex gap-2">
+                                        <button
+                                            className="btn btn-sm btn-info"
+                                            onClick={() => navigate(`/admin/moderator/${mod._id}`)}
+                                        >
+                                            Edit
+                                        </button>
 
-                <tbody>
-                    {moderators.map((mod, index) => (
-                        <tr key={mod._id}>
-                            <td>{index + 1}</td>
-                            <td>{mod.moderatorId}</td>
-                            <td>{mod.name}</td>
-                            <td>{mod.address}</td>
-                            <td>{mod.phone}</td>
-                            <td>{mod.bloodGroup}</td>
-                            <td className="flex gap-2">
-                                <button
-                                    className="btn btn-sm btn-info"
-                                    onClick={() => navigate(`/admin/moderator/${mod._id}`)}
-                                >
-                                    Edit
-                                </button>
+                                        <button onClick={() => handleDelete(mod._id)} className="btn btn-sm btn-error">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-                                <button onClick={() => handleDelete(mod._id)} className="btn btn-sm btn-error">
-                                    Delete
-                                </button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
+            </div>
+            );
 }
