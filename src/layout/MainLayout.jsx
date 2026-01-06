@@ -8,7 +8,7 @@ export default function MainLayout() {
       
       <Navbar />
 
-      <div className="flex-1">
+      <div className="flex-1 pt-20">
         <Outlet />
       </div>
 

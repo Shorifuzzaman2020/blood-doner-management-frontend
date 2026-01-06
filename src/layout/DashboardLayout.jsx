@@ -8,7 +8,7 @@ export default function DashboardLayout() {
       
       <Navbar />
 
-      <div className="flex-1">
+      <div className="flex-1 pt-20">
         <Outlet />
       </div>
 
