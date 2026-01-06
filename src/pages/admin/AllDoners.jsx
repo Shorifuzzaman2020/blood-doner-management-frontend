@@ -8,7 +8,7 @@
 //   const navigate = useNavigate();
 
 //   const fetchDoners = async () => {
-//     const res = await axios.get("http://localhost:5000/api/admin/doners");
+//     const res = await axios.get("https://blood-doner-server.vercel.app/api/admin/doners");
 //     setDoners(res.data);
 //   };
 
@@ -18,7 +18,7 @@
 
 //   const handleDelete = async (id) => {
 //     if (!confirm("Are you sure?")) return;
-//     await axios.delete(`http://localhost:5000/api/admin/doner/${id}`);
+//     await axios.delete(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`);
 //     fetchDoners();
 //   };
 
@@ -91,7 +91,7 @@ export default function AllDoners() {
   const navigate = useNavigate();
 
   const fetchDoners = async () => {
-    const res = await axios.get("http://localhost:5000/api/admin/doners");
+    const res = await axios.get("https://blood-doner-server.vercel.app/api/admin/doners");
     setDoners(res.data);
     setFiltered(res.data);
   };
@@ -134,7 +134,7 @@ export default function AllDoners() {
 
   const handleDelete = async (id) => {
     if (!confirm("Are you sure?")) return;
-    await axios.delete(`http://localhost:5000/api/admin/doner/${id}`);
+    await axios.delete(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`);
     fetchDoners();
   };
 

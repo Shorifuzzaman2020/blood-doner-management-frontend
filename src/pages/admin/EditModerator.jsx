@@ -25,7 +25,7 @@ export default function EditModerator() {
   }, []);
 
   const fetchModerator = async () => {
-    const res = await axios.get(`http://localhost:5000/api/admin/moderator/${id}`);
+    const res = await axios.get(`https://blood-doner-server.vercel.app/api/admin/moderator/${id}`);
     setForm(res.data);
   };
 
@@ -36,7 +36,7 @@ export default function EditModerator() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.put(`http://localhost:5000/api/admin/moderator/${id}`, form);
+    await axios.put(`https://blood-doner-server.vercel.app/api/admin/moderator/${id}`, form);
     alert("Moderator updated");
     navigate("/admin/moderators");
   };

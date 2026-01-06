@@ -29,7 +29,7 @@ export default function EditDoner() {
     }, []);
 
     const fetchDoner = async () => {
-        const res = await axios.get(`http://localhost:5000/api/admin/doner/${id}`);
+        const res = await axios.get(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`);
         const data = res.data;
         setForm({
             ...data,
@@ -48,7 +48,7 @@ export default function EditDoner() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.put(`http://localhost:5000/api/admin/doner/${id}`, form);
+        await axios.put(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`, form);
 
         alert("Doner updated successfully");
         navigate("/admin/doners");

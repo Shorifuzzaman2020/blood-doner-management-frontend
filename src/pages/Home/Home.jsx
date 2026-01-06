@@ -36,7 +36,7 @@ export default function Home() {
     }, []);
 
     const fetchTopDoners = async () => {
-        const res = await axios.get("http://localhost:5000/api/doners/top");
+        const res = await axios.get("https://blood-doner-server.vercel.app/api/doners/top");
         setTopDoners(res.data);
     };
 

@@ -8,7 +8,7 @@ export default function AllModerators() {
     const navigate = useNavigate();
 
     const fetchModerators = async () => {
-        const res = await axios.get("http://localhost:5000/api/admin/moderators");
+        const res = await axios.get("https://blood-doner-server.vercel.app/api/admin/moderators");
         setModerators(res.data);
     };
 
@@ -18,7 +18,7 @@ export default function AllModerators() {
 
     const handleDelete = async (id) => {
         if (!confirm("Are you sure?")) return;
-        await axios.delete(`http://localhost:5000/api/admin/moderator/${id}`);
+        await axios.delete(`https://blood-doner-server.vercel.app/api/admin/moderator/${id}`);
         fetchModerators();
     };
 

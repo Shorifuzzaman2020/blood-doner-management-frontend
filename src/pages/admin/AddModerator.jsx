@@ -21,7 +21,7 @@
 
 //   const handleSubmit = async () => {
 //     try {
-//       const res = await axios.post("http://localhost:5000/api/admin/add-moderator", form);
+//       const res = await axios.post("https://blood-doner-server.vercel.app/api/admin/add-moderator", form);
 //       alert(res.data.message);
 
 //       setForm({
@@ -99,7 +99,7 @@ export default function AddModerator() {
 
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/admin/add-moderator",
+                "https://blood-doner-server.vercel.app/api/admin/add-moderator",
                 form
             );
 

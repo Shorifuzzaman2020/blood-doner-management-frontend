@@ -15,7 +15,7 @@ export default function ModeratorProfile() {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/moderator/profile/${moderatorId}`);
+      const res = await axios.get(`https://blood-doner-server.vercel.app/api/moderator/profile/${moderatorId}`);
       setProfile(res.data);
       setLoading(false);
     } catch (err) {

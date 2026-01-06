@@ -23,7 +23,7 @@ export default function AddDoner() {
 
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/admin/add-doner",
+                "https://blood-doner-server.vercel.app/api/admin/add-doner",
                 form
             );
 
