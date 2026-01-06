@@ -30,6 +30,7 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             {/* <li><Link to="/doners">Donor List</Link></li> */}
             <li><Link to="/activity">Our Activity</Link></li>
+            {/* <li><Link to="/beAdonor">Be a Donor</Link></li> */}
           </ul>
         </div>
 
@@ -52,6 +53,7 @@ const Navbar = () => {
           <li><Link to="/">Home</Link></li>
           {/* <li><Link to="/doners">Donor List</Link></li> */}
           <li><Link to="/activity">Our Activity</Link></li>
+          {/* <li><Link to="/beAdonor">Be a Donor</Link></li> */}
         </ul>
       </div>
 
