@@ -208,7 +208,18 @@ export default function AllDoners() {
                 <td className="flex gap-2">
                   <button
                     className="btn btn-sm btn-info"
-                    onClick={() => navigate(`/admin/doner/${doner._id}`)}
+                    // onClick={() => navigate(`/admin/doner/${doner._id}`)}
+                    onClick={() => {
+                      const role = localStorage.getItem("role");
+
+                      if (role === "admin") {
+                        navigate(`/admin/doner/${doner._id}`);
+                      } else if (role === "moderator") {
+                        navigate(`/moderator/doner/${doner._id}`);
+                      }
+                    }}
+
+
                   >
                     Edit
                   </button>

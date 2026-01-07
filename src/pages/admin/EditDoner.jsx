@@ -45,14 +45,33 @@ export default function EditDoner() {
         setForm({ ...form, [name]: value });
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     await axios.put(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`, form);
+
+    //     alert("Doner updated successfully");
+    //     navigate("/admin/doners");
+    // };
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.put(`https://blood-doner-server.vercel.app/api/admin/doner/${id}`, form);
+        await axios.put(
+            `https://blood-doner-server.vercel.app/api/admin/doner/${id}`,
+            form
+        );
 
         alert("Doner updated successfully");
-        navigate("/admin/doners");
+
+        const role = localStorage.getItem("role");
+
+        if (role === "admin") {
+            navigate("/admin/doners");
+        } else if (role === "moderator") {
+            navigate("/moderator/doners");
+        }
     };
+
 
     return (
         <div className="max-w-4xl mx-auto bg-base-100 p-8 shadow-xl rounded-xl">
