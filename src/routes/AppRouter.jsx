@@ -209,7 +209,8 @@ const router = createBrowserRouter([
         children: [
           { path: "add-doner", element: <AddDoner /> },
           { path: "doners", element: <AllDoners /> },
-          { path: "profile", element: <ModeratorProfile /> }
+          { path: "profile", element: <ModeratorProfile /> },
+          { path: "doner/:id", element: <EditDoner /> }
         ],
       }
     ],
